@@ -1,0 +1,22 @@
+analyze_field: doc_content
+path:
+  input:
+    file_name: 2021-03-01.json
+    file_path: ./input/2021-03-01.json
+  output:
+    file_name: config.yaml
+    file_path: ./output/config.yaml
+preprocessing_option:
+  1: '[^a-zA-Z0-9ㄱ-ㅎ가-힣 ]'
+  2: '[ㄱ-ㅎ가-힣 ]'
+printout_word:
+  method:
+    dataframe:
+      1: by=["score"], axis=0, ascending=False
+      2: by=["word"], axis=0, ascending=True
+    list:
+      1: key=score, reverse=True
+      2: key=word, reverse=False
+  num:
+    0: '[:]'
+    N: '[:N]'
